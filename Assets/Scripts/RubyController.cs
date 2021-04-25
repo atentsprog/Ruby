@@ -10,7 +10,7 @@ public class RubyController : MonoBehaviour
         
     }
 
-    // 강사는 다른 설명을 했다. 그래서 충돌 날것이다.
+    // 화면 갱신될때마다 호출됨 - git테스트중
     void Update()
     {
         float horizontal = Input.GetAxis("Horizontal");
