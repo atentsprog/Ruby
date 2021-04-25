@@ -10,7 +10,7 @@ public class RubyController : MonoBehaviour
         
     }
 
-    // Update is called once per frame
+    // 화면 갱신될때마다 호출됨 - git테스트중
     void Update()
     {
         float horizontal = Input.GetAxis("Horizontal");
