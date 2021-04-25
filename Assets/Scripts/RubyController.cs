@@ -14,7 +14,7 @@ public class RubyController : MonoBehaviour
     void Update()
     {
         float horizontal = Input.GetAxis("Horizontal");
-        Debug.Log(horizontal);
+        Debug.Log(horizontal + "그리고 다른 부분을 추가 수정했다 - git test중");
 
         Vector2 position = transform.position;
         position.x = position.x + 0.1f * horizontal;
