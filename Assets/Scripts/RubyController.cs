@@ -5,7 +5,7 @@ using UnityEngine;
 public class RubyController : MonoBehaviour
 {
     // Start는 처음 시작되는 부분 - Git테스트중
-    // 깃 연습중
+    // 가사가 다시 수정
     void Start()
     {
         
