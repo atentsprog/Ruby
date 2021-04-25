@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RubyController : MonoBehaviour
 {
-    // Start is called before the first frame update
+    // Start는 처음 시작되는 부분 - Git테스트중
     void Start()
     {
         
