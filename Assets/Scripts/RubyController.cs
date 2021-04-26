@@ -8,17 +8,15 @@ public class RubyController : MonoBehaviour
     // 가사가 다시 수정
     void Start()
     {
-        
     }
 
     // 화면 갱신될때마다 호출됨 - git테스트중
     void Update()
     {
+        //GetKeyDown <- 키를 눌렀을때 최초 1회
+        //GetKey    <- 키를 누르고 있는동안 
+        //GetKeyUp  <- 키를 땔때 최초 1회
         //float horizontal = 0;
-        //if (Input.GetKey(KeyCode.A))
-        //{
-        //    horizontal = -1;
-        //}
 
         //if (Input.GetKey(KeyCode.D))
         //{
@@ -48,8 +46,8 @@ public class RubyController : MonoBehaviour
         float vertical = Input.GetAxis("Vertical");
 
         Vector2 position = transform.position;
-        position.x = position.x + 0.1f * horizontal;
-        position.y = position.y + 0.1f * vertical;
+        position.x = position.x + 3.0f * horizontal * Time.deltaTime;
+        position.y = position.y + 3.0f * vertical * Time.deltaTime;
         transform.position = position;
     }
 }
