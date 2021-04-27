@@ -4499,11 +4499,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1449052798794013632, guid: 4132107451011b6478c33d3f1c3d5a18, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.243
+      value: 1.7
       objectReference: {fileID: 0}
     - target: {fileID: 1449052798794013632, guid: 4132107451011b6478c33d3f1c3d5a18, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.084
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1449052798794013632, guid: 4132107451011b6478c33d3f1c3d5a18, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4537,45 +4537,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1449052798794013633, guid: 4132107451011b6478c33d3f1c3d5a18, type: 3}
-      propertyPath: m_FlipX
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1449052798794013633, guid: 4132107451011b6478c33d3f1c3d5a18, type: 3}
-      propertyPath: m_FlipY
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1449052798794013633, guid: 4132107451011b6478c33d3f1c3d5a18, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1449052798794013634, guid: 4132107451011b6478c33d3f1c3d5a18, type: 3}
       propertyPath: m_Name
       value: Ruby
-      objectReference: {fileID: 0}
-    - target: {fileID: 1449052798794013647, guid: 4132107451011b6478c33d3f1c3d5a18, type: 3}
-      propertyPath: speed
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 1449052798794013647, guid: 4132107451011b6478c33d3f1c3d5a18, type: 3}
-      propertyPath: maxHealth
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7780565833663314785, guid: 4132107451011b6478c33d3f1c3d5a18, type: 3}
-      propertyPath: m_Size.x
-      value: 0.48944092
-      objectReference: {fileID: 0}
-    - target: {fileID: 7780565833663314785, guid: 4132107451011b6478c33d3f1c3d5a18, type: 3}
-      propertyPath: m_Size.y
-      value: 0.27881107
-      objectReference: {fileID: 0}
-    - target: {fileID: 7780565833663314785, guid: 4132107451011b6478c33d3f1c3d5a18, type: 3}
-      propertyPath: m_Offset.x
-      value: -0.045279503
-      objectReference: {fileID: 0}
-    - target: {fileID: 7780565833663314785, guid: 4132107451011b6478c33d3f1c3d5a18, type: 3}
-      propertyPath: m_Offset.y
-      value: 0.11940558
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4132107451011b6478c33d3f1c3d5a18, type: 3}
