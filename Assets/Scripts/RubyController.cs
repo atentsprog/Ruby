@@ -5,7 +5,7 @@ using UnityEngine;
 public class RubyController : MonoBehaviour
 {
     public int maxHealth = 5;
-    int currentHealth;
+    public int currentHealth;
 
     new Rigidbody2D rigidbody2D;
 
@@ -65,7 +65,7 @@ public class RubyController : MonoBehaviour
     public float speed = 3.0f;
 
 
-    void ChangeHealth(int amount)
+    public void ChangeHealth(int amount)
     {
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
         Debug.Log(currentHealth + "/" + maxHealth);
