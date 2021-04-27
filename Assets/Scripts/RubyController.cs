@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class RubyController : MonoBehaviour
 {
-    Rigidbody2D rigidbody2d;
+    public int maxHealth = 5;
+    int currentHealth;
 
+    new Rigidbody2D rigidbody2D;
+
+    //public int health;
 
     void Start()
     {
-        rigidbody2d = GetComponent<Rigidbody2D>();
+        rigidbody2D = GetComponent<Rigidbody2D>();
+        currentHealth = maxHealth;
     }
 
     // 화면 갱신될때마다 호출됨 - git테스트중
@@ -20,10 +25,14 @@ public class RubyController : MonoBehaviour
         //GetKeyUp  <- 키를 땔때 최초 1회
         //float horizontal = 0;
 
-        //if (Input.GetKey(KeyCode.D))
-        //{
-        //    horizontal = 1;
-        //}
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            ChangeHealth(1);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            ChangeHealth(-2);
+        }
 
         //float vertical = 0;
         //if (Input.GetKey(KeyCode.W))
@@ -47,11 +56,18 @@ public class RubyController : MonoBehaviour
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
-        Vector2 position = rigidbody2d.position;
-        position.x += 3.0f * horizontal * Time.deltaTime;
-        position.y += 3.0f * vertical * Time.deltaTime;
+        Vector2 position = rigidbody2D.position;
+        position.x += speed * horizontal * Time.deltaTime;
+        position.y += speed * vertical * Time.deltaTime;
 
-        rigidbody2d.MovePosition(position);
+        rigidbody2D.MovePosition(position);
     }
-    //public float speed = 3.0;
+    public float speed = 3.0f;
+
+
+    void ChangeHealth(int amount)
+    {
+        currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
+        Debug.Log(currentHealth + "/" + maxHealth);
+    }
 }

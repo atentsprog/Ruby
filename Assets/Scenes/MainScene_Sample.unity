@@ -4553,6 +4553,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ruby
       objectReference: {fileID: 0}
+    - target: {fileID: 1449052798794013647, guid: 4132107451011b6478c33d3f1c3d5a18, type: 3}
+      propertyPath: speed
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1449052798794013647, guid: 4132107451011b6478c33d3f1c3d5a18, type: 3}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7780565833663314785, guid: 4132107451011b6478c33d3f1c3d5a18, type: 3}
       propertyPath: m_Size.x
       value: 0.48944092
