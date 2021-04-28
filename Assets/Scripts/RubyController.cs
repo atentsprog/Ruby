@@ -9,7 +9,14 @@ public class RubyController : MonoBehaviour
 
     private new Rigidbody2D rigidbody2D;
 
-    //public int health;
+    public float timeInvincible = 2.0f;
+    public InvincibleType isInvincible = InvincibleType.NotInvincible;
+    private float invincibleTimer;
+    public enum InvincibleType
+    {
+        Invincible,
+        NotInvincible,
+    }
 
     private void Start()
     {
@@ -20,11 +27,11 @@ public class RubyController : MonoBehaviour
     // 화면 갱신될때마다 호출됨 - git테스트중
     private void Update()
     {
+        #region 체력 변경하는 테스트 로직
+
         //GetKeyDown <- 키를 눌렀을때 최초 1회
         //GetKey    <- 키를 누르고 있는동안
         //GetKeyUp  <- 키를 땔때 최초 1회
-        //float horizontal = 0;
-
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             ChangeHealth(1);
@@ -34,23 +41,7 @@ public class RubyController : MonoBehaviour
             ChangeHealth(-2);
         }
 
-        //float vertical = 0;
-        //if (Input.GetKey(KeyCode.W))
-        //{
-        //    vertical = 1;
-        //}
-
-        //if (Input.GetKey(KeyCode.S))
-        //{
-        //    vertical = -1;
-        //}
-
-        //Debug.Log(horizontal + "그리고 다른 부분을 추가 수정했다 - git test중");
-
-        //Vector2 position = transform.position;
-        //position.x = position.x + 0.1f * horizontal;
-        //position.y = position.y + 0.1f * vertical;
-        //transform.position = position;
+        #endregion 체력 변경하는 테스트 로직
 
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
@@ -60,13 +51,34 @@ public class RubyController : MonoBehaviour
         position.y += speed * vertical * Time.deltaTime;
 
         rigidbody2D.MovePosition(position);
+
+        if (isInvincible == InvincibleType.Invincible)
+        {
+            Debug.Log($"Time.deltaTime : {Time.deltaTime}");
+            invincibleTimer -= Time.deltaTime; // 60 : 1 / 60 = 0.01666 * 60 = 1
+            if (invincibleTimer < 0)
+                isInvincible = InvincibleType.NotInvincible;
+        }
     }
 
     public float speed = 3.0f;
 
+    // 음수일때, 무적아니라면
+    //// -> 한번 데미지 입고 나면 2초간 무적으로 만들어줘야지
+
     public void ChangeHealth(int amount)
     {
+        if (amount < 0)
+        {
+            if (isInvincible == InvincibleType.Invincible)
+                return;
+
+            isInvincible = InvincibleType.Invincible;
+            invincibleTimer = timeInvincible;
+        }
+
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
+
         Debug.Log(currentHealth + "/" + maxHealth);
     }
 }
