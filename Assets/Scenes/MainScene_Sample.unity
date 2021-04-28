@@ -2495,6 +2495,67 @@ CompositeCollider2D:
       - {x: -1.9999708, y: 2}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
+--- !u!1001 &43856166
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5143626397425002364, guid: 2c500fc690204ee4eb2a038e70e5bc8e, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7542118441992818859, guid: 2c500fc690204ee4eb2a038e70e5bc8e, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7542118441992818859, guid: 2c500fc690204ee4eb2a038e70e5bc8e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7542118441992818859, guid: 2c500fc690204ee4eb2a038e70e5bc8e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 7542118441992818859, guid: 2c500fc690204ee4eb2a038e70e5bc8e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7542118441992818859, guid: 2c500fc690204ee4eb2a038e70e5bc8e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7542118441992818859, guid: 2c500fc690204ee4eb2a038e70e5bc8e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7542118441992818859, guid: 2c500fc690204ee4eb2a038e70e5bc8e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7542118441992818859, guid: 2c500fc690204ee4eb2a038e70e5bc8e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7542118441992818859, guid: 2c500fc690204ee4eb2a038e70e5bc8e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7542118441992818859, guid: 2c500fc690204ee4eb2a038e70e5bc8e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7542118441992818859, guid: 2c500fc690204ee4eb2a038e70e5bc8e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164280731034515580, guid: 2c500fc690204ee4eb2a038e70e5bc8e, type: 3}
+      propertyPath: m_Name
+      value: Bot
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2c500fc690204ee4eb2a038e70e5bc8e, type: 3}
 --- !u!1 &155803920
 GameObject:
   m_ObjectHideFlags: 0
@@ -2531,7 +2592,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.28, y: 1.28}
+    oldSize: {x: 0.64, y: 0.64}
     newSize: {x: 2.56, y: 2.56}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
