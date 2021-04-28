@@ -10,8 +10,9 @@ public class RubyController : MonoBehaviour
     private new Rigidbody2D rigidbody2D;
 
     public float timeInvincible = 2.0f;
-    public InvincibleType isInvincible = InvincibleType.NotInvincible;
+    public bool isInvincible = false;
     private float invincibleTimer;
+
     public enum InvincibleType
     {
         Invincible,
@@ -52,12 +53,12 @@ public class RubyController : MonoBehaviour
 
         rigidbody2D.MovePosition(position);
 
-        if (isInvincible == InvincibleType.Invincible)
+        if (isInvincible)
         {
             Debug.Log($"Time.deltaTime : {Time.deltaTime}");
             invincibleTimer -= Time.deltaTime; // 60 : 1 / 60 = 0.01666 * 60 = 1
             if (invincibleTimer < 0)
-                isInvincible = InvincibleType.NotInvincible;
+                isInvincible = false;
         }
     }
 
@@ -70,10 +71,10 @@ public class RubyController : MonoBehaviour
     {
         if (amount < 0)
         {
-            if (isInvincible == InvincibleType.Invincible)
+            if (isInvincible)
                 return;
 
-            isInvincible = InvincibleType.Invincible;
+            isInvincible = true;
             invincibleTimer = timeInvincible;
         }
 
