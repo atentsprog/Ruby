@@ -55,7 +55,7 @@ public class RubyController : MonoBehaviour
 
         if (isInvincible)
         {
-            Debug.Log($"Time.deltaTime : {Time.deltaTime}");
+            //Debug.Log($"Time.deltaTime : {Time.deltaTime}");
             invincibleTimer -= Time.deltaTime; // 60 : 1 / 60 = 0.01666 * 60 = 1
             if (invincibleTimer < 0)
                 isInvincible = false;
@@ -78,8 +78,11 @@ public class RubyController : MonoBehaviour
             invincibleTimer = timeInvincible;
         }
 
+        int originalHealth = currentHealth;
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
 
-        Debug.Log(currentHealth + "/" + maxHealth);
+        //Debug.Log(currentHealth + "/" + maxHealth);
+        Debug.Log($"루비의 체력 변화 {originalHealth}-> {currentHealth}, 최대체력 {maxHealth}");
+        // 5 -> 4 , 최대체력 5
     }
 }
