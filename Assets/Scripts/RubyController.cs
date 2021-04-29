@@ -43,9 +43,9 @@ public class RubyController : MonoBehaviour
             lookDirection.Normalize();
         }
 
-        animator.SetFloat("Look X", lookDirection.x);
-        animator.SetFloat("Look Y", lookDirection.y);
-        animator.SetFloat("Speed", move.magnitude);
+        //animator.SetFloat("Look X", lookDirection.x);
+        //animator.SetFloat("Look Y", lookDirection.y);
+        //animator.SetFloat("Speed", move.magnitude);
 
         Vector2 position = rigidbody2d.position;
 
