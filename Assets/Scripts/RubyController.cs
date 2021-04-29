@@ -4,68 +4,67 @@ using UnityEngine;
 
 public class RubyController : MonoBehaviour
 {
+    public float speed = 3.0f;
+
     public int maxHealth = 5;
-    public int currentHealth;
-
-    private new Rigidbody2D rigidbody2D;
-
     public float timeInvincible = 2.0f;
-    public bool isInvincible = false;
+    public GameObject projectilePrefab;
+
+    public int health { get { return currentHealth; } }
+    private int currentHealth;
+    private bool isInvincible;
     private float invincibleTimer;
 
-    public enum InvincibleType
-    {
-        Invincible,
-        NotInvincible,
-    }
+    private Rigidbody2D rigidbody2d;
 
+    private Animator animator;
+    private Vector2 lookDirection = new Vector2(1, 0);
+
+    // Start is called before the first frame update
     private void Start()
     {
-        rigidbody2D = GetComponent<Rigidbody2D>();
+        rigidbody2d = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+
         currentHealth = maxHealth;
     }
 
-    // 화면 갱신될때마다 호출됨 - git테스트중
+    // Update is called once per frame
     private void Update()
     {
-        #region 체력 변경하는 테스트 로직
-
-        //GetKeyDown <- 키를 눌렀을때 최초 1회
-        //GetKey    <- 키를 누르고 있는동안
-        //GetKeyUp  <- 키를 땔때 최초 1회
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            ChangeHealth(1);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            ChangeHealth(-2);
-        }
-
-        #endregion 체력 변경하는 테스트 로직
-
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
-        Vector2 position = rigidbody2D.position;
-        position.x += speed * horizontal * Time.deltaTime;
-        position.y += speed * vertical * Time.deltaTime;
+        Vector2 move = new Vector2(horizontal, vertical);
 
-        rigidbody2D.MovePosition(position);
+        if (!Mathf.Approximately(move.x, 0.0f) || !Mathf.Approximately(move.y, 0.0f))
+        {
+            lookDirection.Set(move.x, move.y);
+            lookDirection.Normalize();
+        }
+
+        animator.SetFloat("Look X", lookDirection.x);
+        animator.SetFloat("Look Y", lookDirection.y);
+        animator.SetFloat("Speed", move.magnitude);
+
+        Vector2 position = rigidbody2d.position;
+
+        position = position + move * speed * Time.deltaTime;
+
+        rigidbody2d.MovePosition(position);
 
         if (isInvincible)
         {
-            //Debug.Log($"Time.deltaTime : {Time.deltaTime}");
-            invincibleTimer -= Time.deltaTime; // 60 : 1 / 60 = 0.01666 * 60 = 1
+            invincibleTimer -= Time.deltaTime;
             if (invincibleTimer < 0)
                 isInvincible = false;
         }
+
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            Launch();
+        }
     }
-
-    public float speed = 3.0f;
-
-    // 음수일때, 무적아니라면
-    //// -> 한번 데미지 입고 나면 2초간 무적으로 만들어줘야지
 
     public void ChangeHealth(int amount)
     {
@@ -78,11 +77,18 @@ public class RubyController : MonoBehaviour
             invincibleTimer = timeInvincible;
         }
 
-        int originalHealth = currentHealth;
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
 
-        //Debug.Log(currentHealth + "/" + maxHealth);
-        Debug.Log($"루비의 체력 변화 {originalHealth}-> {currentHealth}, 최대체력 {maxHealth}");
-        // 5 -> 4 , 최대체력 5
+        UIHealthBar.instance.SetValue(currentHealth / (float)maxHealth);
+    }
+
+    private void Launch()
+    {
+        GameObject projectileObject = Instantiate(projectilePrefab, rigidbody2d.position + Vector2.up * 0.5f, Quaternion.identity);
+
+        //Projectile projectile = projectileObject.GetComponent<Projectile>();
+        //projectile.Launch(lookDirection, 300);
+
+        animator.SetTrigger("Launch");
     }
 }
